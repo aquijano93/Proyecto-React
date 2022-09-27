@@ -14,8 +14,8 @@ const Navbar = () => {
                 <Button>
                     Contact
                 </Button>
+                <CartWidget />
             </div>
-            < CartWidget />
         </nav>
     )
 }

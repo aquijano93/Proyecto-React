@@ -1,9 +1,9 @@
-import cart from "../CartWidget/Assets"
+import cart from "./Assets/cart4.svg"
 
 const CartWidget = () => {
     return (
         <div>
-            <img src={cart} alt='cart'/>
+            <button className="navbar-toggler btn btn-outline-danger mx-auto pt-2 pe-4 me-3"><img src={cart} alt='cart'/></button>
             0
         </div>
     )
