@@ -1,6 +1,8 @@
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import Counter from './components/ItemCounter/Counter';
+
 function App() {
   return (
     <div className="App">
@@ -8,11 +10,12 @@ function App() {
       <ItemListContainer 
       style={{  color:'lightgreen',
                 fontFamily:'monospace',
-                fontSize:'70px',
+                fontSize:'30px',
       }}
       >
         Welcome!
       </ItemListContainer>
+      <Counter />
     </div>
   );
 }

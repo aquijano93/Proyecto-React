@@ -1,0 +1,15 @@
+
+#itemCard {
+    background-color: white;
+    border-radius: 5%;
+    box-shadow: 10px 10px 5px #aaaaaa;
+    width: 300px;
+    margin-top: 38px;
+    margin-bottom: 20px;
+}
+#itemCard h3, #itemCard .h3 {
+    font-family: 'Cabin Condensed', sans-serif; 
+}
+#itemCard p {
+    color: black;
+}
