@@ -1,0 +1,22 @@
+.cardDetail {
+    background-color: rgb(238, 238, 238);
+    border-radius: 5%;
+    width: 300px;
+    margin-top: 38px;
+    margin-bottom: 20px;
+}
+
+.ItemHeader {
+    color: black;
+    text-align: center;
+}
+
+.Info {
+    background-color: rgb(238, 238, 238);
+    font-size: 16px;
+    color: black;
+}
+
+.ItemFooter {
+    background-color: rgb(238, 238, 238);
+}

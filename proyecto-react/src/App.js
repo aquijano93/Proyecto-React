@@ -1,21 +1,24 @@
 import './App.css';
+import { useState } from 'react'
 import Navbar from './components/Navbar/Navbar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import Counter from './components/ItemCounter/Counter';
+import ItemDetailContainer from './components/ItemDetalContainer/ItemDetailContainer';
+import { BrowserRouter, Routes, Route} from 'react-router-dom'
+
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <ItemListContainer 
-      style={{  color:'lightgreen',
-                fontFamily:'monospace',
-                fontSize:'30px',
-      }}
-      >
-        Welcome!
-      </ItemListContainer>
-      <Counter />
+      <BrowserRouter>
+      
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<ItemListContainer />}/>
+          <Route path='/category/:categoryId' element={<ItemListContainer />} />
+          <Route path='/detail/:productId' element={ <ItemDetailContainer />}/> 
+        </Routes>
+        
+      </BrowserRouter>
     </div>
   );
 }

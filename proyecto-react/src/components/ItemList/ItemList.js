@@ -1,12 +1,12 @@
 import Item from "../Item/Item"
 
-const ItemList = ({ products }) => {
+const ItemList = ({ products, setPage }) => {
     //listar
 
     //map transformando los productos en componentes Item
     return (
-        <div>
-            { products.map(prod => <Item key={prod.id} img={prod.img} name={prod.name} category={prod.category} price={prod.price}/>)}
+        <div className="list-group">
+            { products.map(prod => <Item key={prod.id} {...prod} setPage={setPage}/>)}
         </div>
     )
 }
