@@ -1,7 +1,7 @@
 const products =  [
     { 
         id: '1', 
-        name: 'Mast Tour Pro', 
+        name: 'Mast Tour', 
         price: 200, 
         category: 'Machine', 
         img:'/Images/MastTourPro.png', 

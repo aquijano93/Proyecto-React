@@ -18,7 +18,7 @@ const Navbar = () => {
                     Needles
                 </button>
                 <button className="navbar-toggler btn btn-outline-success mx-auto p-2" onClick={() => navigate('/category/Ink')}>
-                    Ink
+                    Tattoo Ink
                 </button>
                 <CartWidget />
             </div>

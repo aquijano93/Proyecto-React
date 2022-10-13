@@ -5,7 +5,7 @@ const ItemList = ({ products, setPage }) => {
 
     //map transformando los productos en componentes Item
     return (
-        <div className="list-group">
+        <div className="row align-items-start">
             { products.map(prod => <Item key={prod.id} {...prod} setPage={setPage}/>)}
         </div>
     )
