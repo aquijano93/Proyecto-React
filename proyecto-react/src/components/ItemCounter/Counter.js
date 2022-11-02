@@ -1,12 +1,12 @@
 import './Counter.css'
 import { useState } from 'react'
 
-const ItemCount = ({stock = 0, initial = 1, onAdd})=> {
+const ItemCount = ({stock, initial = 1, onAdd})=> {
     const [quantity, setQuantity] = useState(initial)
 
     const increment = () => {
         if(quantity < stock) {
-            setQuantity(quantity+1)
+            setQuantity(quantity + 1)
         }
     }
 
@@ -17,7 +17,7 @@ const ItemCount = ({stock = 0, initial = 1, onAdd})=> {
     }
 
     return(
-        <div className='Counter d-flex mt-1 mb-1 p-1'>
+        <div className='d-flex mt-1 mb-1 p-1'>
             <div className='btn-group px-2'>
                 <div className='btn-group'>
                     <button className="btn btn-outline-info" onClick={decrement}>-</button>

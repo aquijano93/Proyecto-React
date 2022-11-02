@@ -4,7 +4,7 @@
     width: 300px;
     margin-top: 38px;
     margin-bottom: 20px;
-    color: black;
+    min-height: 585px;
 }
 
 .ItemHeader {
@@ -20,4 +20,5 @@
 
 .ItemFooter {
     background-color: rgb(238, 238, 238);
+    min-height: 50px;
 }

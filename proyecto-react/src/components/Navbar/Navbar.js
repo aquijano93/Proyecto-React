@@ -11,7 +11,7 @@ const Navbar = () => {
                 <NavLink to='/'>
                     <h3>BluInk Supplies</h3>
                 </NavLink>
-                <button className="navbar-toggler btn btn-outline-success mx-auto p-2" onClick={() => navigate('/category/Machine/')}>
+                <button className="navbar-toggler btn btn-outline-success mx-auto p-2" onClick={() => navigate('/category/Machines')}>
                     Machines
                 </button>
                 <button className="navbar-toggler btn btn-outline-success mx-auto p-2" onClick={() => navigate('/category/Needles')}>
