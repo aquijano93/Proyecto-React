@@ -3,12 +3,16 @@ import ItemCount from '../ItemCounter/Counter'
 import { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 import { useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 const ItemDetail = ({ id, name, img, category, description, price, stock}) => {
 
     const navigate = useNavigate();
     
     const { addItem, isInCart, getProductQuantity } = useContext(CartContext)
+
+    const MySwal = withReactContent(Swal)
 
     const handleOnAdd = (quantity) => {
 
@@ -17,6 +21,11 @@ const ItemDetail = ({ id, name, img, category, description, price, stock}) => {
         }
 
         addItem(porductToAdd, quantity)
+        MySwal.fire({
+            title: <strong>Good job!</strong>,
+            html: <i>You added a product to your cart!</i>,
+            icon: 'success'
+        })
     }
 
     const quantityAdded = getProductQuantity(id)
@@ -44,7 +53,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock}) => {
                 </p>
             </section>           
             <footer className='ItemFooter'>
-            { stock !== 0 ? <ItemCount onAdd={handleOnAdd} stock={stock} initial={quantityAdded} />: <p>No hay stock</p>}
+            { stock !== 0 ? <ItemCount onAdd={handleOnAdd} stock={stock} initial={quantityAdded} />: <p>Out of stock</p>}
             { isInCart(id) && <button className="btn btn-success btn-sm mx-auto mb-1 p-1 ms-1" onClick={() => navigate('/cart')}>Done</button>}
             <button className="btn btn-primary btn-sm mx-auto p-1 mb-1 ms-1" onClick={() => navigate('/')}>Keep Shopping</button>
             </footer>

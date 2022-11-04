@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&family=Merienda+One&display=swap');
 
 .cards {
     margin-left: 10px;
@@ -12,4 +13,5 @@
 .itemCard p {
     color: rgb(255, 255, 255);
     margin-top: 10px;
+    font-family: 'Fira Sans', sans-serif;
 }

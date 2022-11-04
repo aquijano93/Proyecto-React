@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Merienda+One&display=swap');
+
+.navbar, h3 {
+    font-family: 'Merienda One', cursive;
+    color:rgb(181, 235, 109);
+}
+h3{
+    margin-left: 10px;
+}
+h3:hover{
+    scale: 1.1;
+}
+
