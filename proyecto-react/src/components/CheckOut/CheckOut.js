@@ -10,117 +10,109 @@ import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 
 const CheckOut = () => {
-    const [loading, setLoading] = useState(false);
-    const [cart, total, clearCart] = useContext(CartContext);
+    const [loading, setLoading] = useState(false)
     const [buyerData, setBuyerData] = useState(false)
     const [orderData, setOrderData] = useState({})
 
-    const MySwal = withReactContent(Swal);
-    const navigate = useNavigate();
-
-    const dataSet = (name, surname, address, phone, email) =>{
-        setOrderData({name, surname, address, phone, email})
+    const dataSet = (name, lastname, phone, address, email) =>{
+        setOrderData({name, lastname, phone, address, email})
         setBuyerData(true)
-    }
+        }
 
+    const { cart, total, clearCart } = useContext(CartContext)
+    const navigate = useNavigate()
+    const MySwal = withReactContent(Swal);
+    
     const createOrder = async () => {
         setLoading(true)
 
         try {
-            const order = {
+            const objOrder = {
                 buyer: orderData,
                 items: cart,
                 total: total
             }
-            const ids = cart.map(prod => prod.id);
-        
-            const productsRef = collection(db, 'products');
-        
-            const productsFromFS = await getDocs(query(productsRef, where(documentId(), 'in', ids))) 
-        
-            const { docs } = productsFromFS;
-        
-            const batch = writeBatch(db);
-        
-            const outOfStock = [];
-        
+            const batch = writeBatch(db)
+
+            const outOfStock = []
+
+            const ids = cart.map(prod => prod.id)
+    
+            const productsRef = collection(db, 'allProducts')
+    
+            const productsFromFS = await getDocs(query(productsRef, where(documentId(), 'in', ids)))
+
+            const { docs } = productsFromFS
+
             docs.forEach(doc => {
                 const dataDoc = doc.data()
                 const stockDb = dataDoc.stock
-                const productAddedTocart = cart.find(prod => prod.id === doc.id)
-                const prodQuantity = productAddedTocart?.quantity
+
+                const productAddedToCart = cart.find(prod => prod.id === doc.id)
+                const prodQuantity = productAddedToCart?.quantity
 
                 if(stockDb >= prodQuantity) {
-                    batch.update(doc.ref, {stock: stockDb - prodQuantity})
-                }else {
+                    batch.update(doc.ref, { stock: stockDb - prodQuantity })
+                } else {
                     outOfStock.push({ id: doc.id, ...dataDoc})
                 }
             })
-        
-            if(outOfStock.length === 0 ) 
-            {
+
+            if(outOfStock.length === 0) {
                 await batch.commit()
                 const orderRef = collection(db, 'orders')
-                const orderAdded = await addDoc (orderRef, order)
+                const orderAdded = await addDoc(orderRef, objOrder)
                 clearCart()
 
                 setTimeout(() => {
                     navigate('/')
                 }, 3000)
 
+
                 MySwal.fire({
                     title: <strong>Thanks!</strong>,
                     text: `Your order id is: ${orderAdded.id}`,
                     icon: 'success'
                 })
-
-            }
-            else 
-            {
+                
+            } else {
                 MySwal.fire({
                     title: <strong>Oops!</strong>,
                     html: <i>Some products are out of stock!</i>,
                     icon: 'error'
                 })
             }
-        
-        }
-        catch(error) 
-        {
+        } catch (error) {
             MySwal.fire({
                 title: <strong>Oops!</strong>,
                 html: <i>Something wrong happens!</i>,
                 icon: 'error'
             })
-        }
-        finally 
-        {
+        } finally {
             setLoading(false)
         }
     }
 
-    if(loading) 
-    {
+    if(loading) {
         return (
             <DotSpinner 
                 size={40}
                 speed={0.9} 
                 color="white" 
             />
-            
+                
         )
     }
 
-    return (
+    return (    
         <div>
             <h1>CheckOut</h1>
             <FormCheckOut dataSet={dataSet} />
-            {buyerData?<button className="submit btn btn-warning mx-1" onClick={createOrder}>Create Order</button> 
+            { buyerData
+            ?<button className="submit btn btn-warning mx-1" onClick={createOrder}>Create Order</button> 
             : ""}
         </div>
-
     )
-
 }
 
 export default CheckOut
