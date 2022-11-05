@@ -1,70 +1,96 @@
-# Getting Started with Create React App
+# Proyecto React-App por Andres Quijano.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto tiene como funcion principal la simulación de todas las etapas de
+un proceso de ventas para un eCommerce.
 
-## Available Scripts
+El entorno de desarrollo empleado es Create React App. 
 
-In the project directory, you can run:
+[Read more](https://create-react-app.dev/)
 
-### `npm start`
+## Instalación.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Clonar el codigo https://github.com/aquijano93/Proyecto-React.git
 
-### `npm test`
+Se requiere [Node.js](https://nodejs.org/) v10+.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Instalar las dependencias utilizadas.
 
-### `npm run build`
+```sh
+cd proyecto-react
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```sh
+npm install
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Configuración del proyecto.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+Para correr este proyecto es necesario contar con una cuenta de FireBase
+* [FireBase](https://firebase.google.com/?hl=es-419&gclid=EAIaIQobChMI6d7qh6GX-wIVbU9IAB0Wvw3iEAAYASAAEgL3ovD_BwE&gclsrc=aw.ds)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Inicializar un nuevo proyecto en FireStore
+* [FireStore](https://firebase.google.com/products/firestore?hl=es-419&gclid=EAIaIQobChMIm8T9m6GX-wIVEE-RCh0FBQ53EAAYASAAEgIaOPD_BwE&gclsrc=aw.ds)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Iniciar una colección nominada 'allProducts'
+> Note: `allProducts` es requerido para la correcta renderizacion del proyecto.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+El formato de los documentos se compone con la siguiente estructura
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```jsx
+{
+    category:''
+    description:''
+    img:''
+    name:''
+    price:''
+    stock:''
+}
+```
 
-## Learn More
+> Note: `category` deberás configurar 3 categorías diferentes para su  correcto filtrado dentro del componente 'itemListContainer', 'Item', o puedes usar las categorías predeterminadas 'Machines', 'Needdles', 'Ink'.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Enlazando tu proyecto a FireStore.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+Deberás crear un carpeta para almacenar las key proporcionadas por FireStore, con la siguiente estructura: 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+> Note: `src/services/firebase`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+Procede a crear el archivo index.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Aplica la siguiente configuración
 
-### Advanced Configuration
+```jsx
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+import { initializeApp } from "firebase/app";
+import { getFirestore } from 'firebase/firestore'
 
-### Deployment
+const firebaseConfig = {
+    REACT_APP_apiKey='',
+    REACT_APP_authDomain='',
+    REACT_APP_projectId='',
+    REACT_APP_storageBucket='',
+    REACT_APP_messagingSenderId='',
+    REACT_APP_appId=''
+}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+const app = initializeApp(firebaseConfig);
 
-### `npm run build` fails to minify
+export const db = getFirestore(app)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+
+
+> Note: Deberás completar los campos con las `keys` que te proporciona FireStore.
+
+
+## Tu Proyecto está listo para inicializar.
+
+
+```sh
+npm start
+```

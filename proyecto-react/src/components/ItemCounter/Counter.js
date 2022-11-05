@@ -18,7 +18,7 @@ const ItemCount = ({stock, initial = 1, onAdd})=> {
 
     return(
         <div className='d-flex mt-1 mb-1 p-1'>
-            <div className='btn-group px-2'>
+            <div className='btn-group px-2 p-2'>
                 <div className='btn-group'>
                     <button className="btn btn-outline-info" onClick={decrement}>-</button>
                 </div>
@@ -28,7 +28,7 @@ const ItemCount = ({stock, initial = 1, onAdd})=> {
                 </div>
             </div>
             <div>
-                <button className="btn btn-outline-primary px-4" onClick={() => onAdd(quantity)}>Agregar al carrito</button>
+                <button className="btn btn-outline-primary px-4 p-2" onClick={() => onAdd(quantity)}>Add to cart</button>
             </div>
         </div>
     )
