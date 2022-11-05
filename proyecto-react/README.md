@@ -94,3 +94,5 @@ export const db = getFirestore(app)
 ```sh
 npm start
 ```
+
+### Gracias por leer.
