@@ -1,0 +1,10 @@
+.cartTitle {
+    text-align: center;
+}
+
+.myBtnCart {
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    
+}

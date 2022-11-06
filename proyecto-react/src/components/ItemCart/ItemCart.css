@@ -1,9 +1,44 @@
-th{
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&family=Merienda+One&display=swap');
 
-    font-size: larger;
+.CartItem {
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    padding: 20px;
+    margin: 30px;
+    font-size: 10px;
+    background-color: rgb(247, 246, 245);
+    border-radius: 10px;
+    font-family: 'Fira Sans', sans-serif;
+    box-shadow: 10px 10px 5px #000000;
+    color: #000000;
+    margin-right: 20px;
+}
+
+.header, .h2 {
+    font-family: 'Fira Sans', sans-serif;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 20px;
+}
+section {
+    display: flex;
+    justify-content: space-between;
+}
+
+.p {
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 50px;
+    margin-top: 10px;
     font-weight: bold;
 }
 
-td{
-    font-size: large;
+.myBtn {
+    margin: 10px;
+}
+
+.footer{
+    display: flex;
 }

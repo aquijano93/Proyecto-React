@@ -22,14 +22,14 @@ const FormCheckOut = ({dataSet}) => {
     
 
     const sendData = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         if (!name || !email || !phone || !address)
         {
-        MySwal.fire({
-            title: <strong>Oops!</strong>,
-            html: <i>You have to complete all the fields</i>,
-            icon: 'error'
-        })
+            MySwal.fire({
+                title: <strong>Oops!</strong>,
+                html: <i>You have to complete all the fields</i>,
+                icon: 'error'
+            })
         }
         else 
         {

@@ -2,35 +2,35 @@ import './ItemCart.css'
 import { useContext } from 'react'
 import { CartContext } from '../../context/CartContext'
 
-const ItemCart = ({id, name, quantity, price }) => {
-    
-    const { removeItem } = useContext(CartContext)
+const ItemCart = ({id, name, quantity, price}) => {
 
-    const handleRemove = (id) => {
-        removeItem(id)
-    }
+    const {removeItem } = useContext(CartContext)
+    
+    const handleRemove = (id) => {removeItem(id)}
+
     return (
-        <div className=''>
-            <table className='table table-dark table-striped'>
-                <thead>
-                    <tr>
-                        <th>Product</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>SubTotal</th>
-                    </tr>
-                    <tbody>
-                        <tr>
-                            <td>{name}</td>
-                            <td>{quantity}</td>
-                            <td>{price}</td>
-                            <td>{price * quantity}</td>
-                            <td><button className='btn btn-danger btn-sm mx-auto' onClick={() => handleRemove(id)}>🗑</button></td>
-                        </tr>
-                    </tbody>
-                </thead>
-            </table>
-        </div>
+        <article className='CartItem'>
+            <header>
+                <h2 className='h2'>
+                    {name}
+                </h2>
+            </header>
+            <section>
+                <p className='p'>
+                    Cantidad: {quantity}
+                </p>
+                <p className='p'>
+                    Precio x Unidad: ${price}
+                </p>
+            </section>           
+            <footer className='footer'>
+                <p className='p'>
+                     Subtotal: ${price * quantity}
+                </p>
+
+                <button className='myBtn btn btn-danger btn-sm mx-auto' onClick={() => handleRemove(id)}>🗑</button>
+            </footer>
+        </article>
     )
 }
 

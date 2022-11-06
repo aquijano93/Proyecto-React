@@ -41,17 +41,17 @@ const ItemDetail = ({ id, name, img, category, description, price, stock}) => {
             <picture>
                 <img src={img} alt={name} className="card-img-top"/>
             </picture>
-            <section className='Info'>
-                <p className="Info">
-                    Category: {category}
-                </p>
-                <p className="Info">
-                    Description: {description}
-                </p>
-                <p className="Info">
-                    Precie: USD {price}
-                </p>
-            </section>           
+            <ul className='Info'>
+                <li className="Info">
+                    <strong>Category:</strong>  {category}
+                </li>
+                <li className="Info">
+                    <strong>Description:</strong> {description}
+                </li>
+                <li className="Info">
+                <strong>Precie: USD</strong> {price}
+                </li>
+            </ul>           
             <footer className='ItemFooter'>
             { stock !== 0 ? <ItemCount onAdd={handleOnAdd} stock={stock} initial={quantityAdded} />: <p>Out of stock</p>}
             { isInCart(id) && <button className="btn btn-success btn-sm mx-auto mb-1 p-1 ms-1" onClick={() => navigate('/cart')}>Done</button>}

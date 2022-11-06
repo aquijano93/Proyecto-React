@@ -13,12 +13,12 @@ export const CartProvider = ({children}) => {
     useEffect(() => {
         const totalQty = getQuantity()
         setTotalQuantity(totalQty)
-    }, [cart])
+    }, [cart])//eslint-disable-line
 
     useEffect(() => {
         const total = getTotal()
         setTotal(total)
-    }, [cart])
+    }, [cart])//eslint-disable-line
 
     const addItem = (productToAdd, quantity) => {
         if(!isInCart(productToAdd.id)) {
