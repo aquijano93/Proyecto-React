@@ -1,0 +1,21 @@
+.home {
+    background-color: rgb(2, 2, 2);
+    height: 100vh;
+    width: 100%;
+}
+.imgContainer {
+display: inline-block;
+align-items: center;
+justify-content: space-around;
+margin-top: 20vh;
+margin-left: 30%;
+}
+
+.title {
+    color:bisque;
+}
+
+.imgLogo {
+    max-width: 500px;
+    max-height: 500px;
+}

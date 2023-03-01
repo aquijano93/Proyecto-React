@@ -53,7 +53,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock}) => {
                 </li>
             </ul>           
             <footer className='ItemFooter'>
-            { stock !== 0 ? <ItemCount onAdd={handleOnAdd} stock={stock} initial={quantityAdded} />: <p>Out of stock</p>}
+            { stock !== 0 ? <ItemCount onAdd={handleOnAdd} stock={stock} initial={quantityAdded} />: <p className='stockInfo'>Out of stock</p>}
             { isInCart(id) && <button className="btn btn-success btn-sm mx-auto mb-1 p-1 ms-1" onClick={() => navigate('/cart')}>Done</button>}
             <button className="btn btn-primary btn-sm mx-auto p-1 mb-1 ms-1" onClick={() => navigate('/')}>Keep Shopping</button>
             </footer>

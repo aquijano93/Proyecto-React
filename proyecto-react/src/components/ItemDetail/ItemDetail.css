@@ -33,3 +33,7 @@
     background-color: rgb(238, 238, 238);
     min-height: 50px;
 }
+
+.stockInfo {
+    color: black;
+}
